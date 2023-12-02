@@ -25,7 +25,7 @@ class Game
         bool running = true;
         bool paused = true;
         end_t* endingAddress = NULL;
-        Uint64 deltaTime = 170;
+        Uint64 deltaTime = 200;
 
     private:
         // Methods
@@ -49,7 +49,8 @@ class Game
 
         const SDL_Color BG_COLOR = {0, 0, 0, 255};
         const SDL_Color BORDER_COLOR = {0, 0, 200, 255};
-        const SDL_Color SNAKE_COLOR = {0, 170, 0, 255};
+        const SDL_Color BODY_COLOR = {0, 100, 0, 255};
+        const SDL_Color HEAD_COLOR = {0, 150, 0, 255};
         const SDL_Color APPLE_COLOR = {255, 0, 0, 255};
 
 };

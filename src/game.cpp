@@ -52,7 +52,7 @@ Game::~Game()
 void Game::handleEvents()
 {
     SDL_Event event;
-    int maximumQueueSize = 2;
+    int maximumQueueSize = 3;
 
     while (SDL_PollEvent(&event))
     {
@@ -94,7 +94,7 @@ void Game::handleEvents()
                 default: return;
             } // End switch
             
-            if ( (directionQueue.size() < maximumQueueSize) && (direction != opposite(lastDirectionTaken)) ) directionQueue.push(direction);
+            if ( (directionQueue.size() < maximumQueueSize) && (direction != none) ) directionQueue.push(direction);
 
         } // End else-if keyDown
     } // End while(PollEvent())
@@ -126,7 +126,7 @@ void Game::update()
         directionQueue.pop();
     }
 
-    if (direction != none) lastDirectionTaken = direction;
+    if ( (direction != none) && (direction != opposite(lastDirectionTaken)) ) lastDirectionTaken = direction;
 
     event_t event = snake.move(lastDirectionTaken, apple);
 
@@ -188,7 +188,7 @@ void Game::draw()
         setRendererColor(renderer, APPLE_COLOR);
         SDL_RenderFillRect(renderer, &rect);
 
-        setRendererColor(renderer, SNAKE_COLOR);
+        setRendererColor(renderer, HEAD_COLOR);
 
         std::vector<SDL_Point> points = snake.get();
 
@@ -196,7 +196,7 @@ void Game::draw()
         rect.y = points[0].y * blockSize;
         SDL_RenderFillRect(renderer, &rect);
 
-        
+        setRendererColor(renderer, BODY_COLOR);
         // rect.w *= 3.0f/4;
         // rect.h *= 3.0f/4;
         for (int i = 1; i < points.size(); i++)
