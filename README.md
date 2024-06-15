@@ -9,5 +9,5 @@ After ""learning"" c++ for the first year of college, I switched to c because it
 ![thisIsAPhotoYouCannotSee](readme.png)
 
 ## Instalation
-Just gitcloning this and running the Makefile should be ok if your in a linux distro. You'll need SDL2 and SDL2main packages for compiling. There is no support for mswindows at the moment (and probably never will be) :p.
+Just gitcloning this and running the Makefile should be ok if you are in a linux distro. You'll need SDL2 and SDL2main packages for compiling. There is no support for mswindows at the moment (and probably never will be) :p.
 
